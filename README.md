@@ -14,7 +14,13 @@
 - Metamask
 
 ## Screenshots
-
+![image](https://github.com/boritozzz/BlochchainVoting/1.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/2.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/3.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/4.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/5.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/6.jpg)
+![image](https://github.com/boritozzz/BlochchainVoting/7.jpg)
 ## Installation
 
 1. Open a terminal.
