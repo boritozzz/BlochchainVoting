@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.7-rc.0/web3.min.js"></script>
+    <title>Blockchain Voting System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="votingForm">
+
+        <!-- Identity Verification Section -->
+        <div id="verificationSection">
+            <h2>Identity Verification</h2>
+            <p>Please verify your identity using the registered ID number.</p>
+            <button type="button" onclick="verifyIdentity()">Verify Identity</button>
+        </div>
+    </form>
+        <!-- Voting Section -->
+        <div id="votingGet" style="display: none;">
+            <h2>Show amount of votes</h2>
+            <label for="voting">Select Candidate:</label>
+            <select id="voting" required>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <!-- Add more options as needed -->
+            </select>
+            <label id = "votesAmount"></label>
+            <button type="button" onclick="getVotes()">Get Votes</button>
+        </div>
+        <!-- Voting Section -->
+        <div id="votingSection" style="display: none;">
+            <h2>Choose candidate</h2>
+            <label for="vote">Select Candidate:</label>
+            <select id="vote" required>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+                <option value="candidate4">Candidate 4</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="button" onclick="castVote()">Cast Vote</button>
+        </div>
+
+    
+
+    <script>
+        let account;
+        const verifyIdentity = async () => {
+                if(window.ethereum !== "undefined"){
+                    const accounts = await ethereum.request({method: "eth_requestAccounts"});
+                    account = accounts[0];
+          const ABI =[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_candidate",
+				"type": "string"
+			}
+		],
+		"name": "castVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_voter",
+				"type": "address"
+			}
+		],
+		"name": "registerVoter",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "candidate",
+				"type": "string"
+			}
+		],
+		"name": "VoteCasted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			}
+		],
+		"name": "VoterRegistered",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_candidate",
+				"type": "string"
+			}
+		],
+		"name": "getVoteCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "hasVoted",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "registeredVoters",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "voteCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+] ;
+          const Address = "0x0AE5058974A9f2783679c480850Fc079B47Fa031";
+          window.web3 = await new Web3(window.ethereum);
+          window.contract = await new window.web3.eth.Contract(ABI, Address);
+        await window.contract.methods.registerVoter(account).send({from:account});
+          document.getElementById('verificationSection').style.display = 'none';
+            document.getElementById('votingSection').style.display = 'block';
+            document.getElementById('votingGet').style.display = 'block';
+                }
+            }
+            const getVotes = async () => {
+                const candidate= document.getElementById("voting").value;
+                const amount = await window.contract.methods.getVoteCount(candidate).call();
+                document.getElementById("votesAmount").innerText=amount;
+            }
+            const castVote = async () => {
+                const candidate= document.getElementById("vote").value;
+                await window.contract.methods.castVote(candidate).send({from:account});
+
+             alert('Vote cast successfully! Thank you for participating.');
+        }
+    </script>
+
+</body>
+</html>
