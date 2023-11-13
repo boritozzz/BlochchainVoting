@@ -14,7 +14,6 @@
 - Metamask
 
 ## Screenshots
-Эмир, скрины сам загрузи. Не забудь только.
 
 ## Installation
 
