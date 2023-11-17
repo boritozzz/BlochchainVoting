@@ -18,7 +18,9 @@
 ![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/248137a2-af90-45fd-ad0d-3dc87b3520bc)
 ![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/a96cd644-e7ef-4d76-b395-02100e941a7f)
 ![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/210b554e-995e-4a90-a36f-1385d57d1961)
-
+![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/e229a939-dfd3-431b-9610-58f5e88702a6)
+![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/c0a5cb3d-6214-4c2e-9409-f15f099d319d)
+![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/5cc6ea0a-e9f4-4fb7-b62f-28212604fea0)
 
 
 
