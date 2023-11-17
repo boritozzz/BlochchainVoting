@@ -15,6 +15,8 @@
 
 ## Screenshots
 ![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/3732e33a-8167-4fa6-a256-c401d7ba0c6a)
+![image](https://github.com/boritozzz/BlochchainVoting/assets/79746063/248137a2-af90-45fd-ad0d-3dc87b3520bc)
+
 
 ## Installation
 
