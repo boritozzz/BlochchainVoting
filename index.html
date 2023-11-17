@@ -236,7 +236,7 @@
 		"type": "function"
 	}
 ] ;
-          const Address = "0x28985ABDfc2cAd32d053961Ba2efE5a274Bc2549";
+          const Address = "0x603c2c0FAccF94E1F6e498Ae9741BbE6583Df506";
           window.web3 = await new Web3(window.ethereum);
           window.contract = await new window.web3.eth.Contract(ABI, Address);
         await window.contract.methods.registerVoter(account).send({from:account});
