@@ -82,24 +82,149 @@
                 if(window.ethereum !== "undefined"){
                     const accounts = await ethereum.request({method: "eth_requestAccounts"});
                     account = accounts[0];
-          const ABI =[
-	
+          const ABI =[[
 	{
 		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "num",
-				"type": "uint256"
+				"internalType": "string",
+				"name": "_candidate",
+				"type": "string"
 			}
 		],
-		"name": "store",
+		"name": "castVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_voter",
+				"type": "address"
+			}
+		],
+		"name": "registerVoter",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [],
-		"name": "retrieve",
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "candidate",
+				"type": "string"
+			}
+		],
+		"name": "VoteCasted",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			}
+		],
+		"name": "VoterRegistered",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "admin",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_candidate",
+				"type": "string"
+			}
+		],
+		"name": "getVoteCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "hasVoted",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "registeredVoters",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "voteCount",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -110,6 +235,7 @@
 		"stateMutability": "view",
 		"type": "function"
 	}
+]
 ] ;
           const Address = "0xd9145CCE52D386f254917e481eB44e9943F39138";
           window.web3 = await new Web3(window.ethereum);
