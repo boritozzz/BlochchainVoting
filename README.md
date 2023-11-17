@@ -24,15 +24,12 @@
         
         git clone https://github.com/boritozzz/BlochchainVoting.git
 
-3. Download and install [Ganache](https://trufflesuite.com/ganache/).
+   
+3. Download [Metamask](https://metamask.io/download/) extension for the browser.
 
-4. Create a workspace named <b>developement</b>, in the truffle projects section add `truffle-config.js` by clicking `ADD PROJECT` button.
+4. Now create wallet (if you don't have one), then import accounts from ganache.
 
-5. Download [Metamask](https://metamask.io/download/) extension for the browser.
-
-6. Now create wallet (if you don't have one), then import accounts from ganache.
-
-7. Add network to the metamask. ( Network name - Localhost 7575, RPC URl - http://localhost:7545, Chain ID - 1337, Currency symbol - ETH)
+5. Add network to the metamask. ( Network name - Localhost 7575, RPC URl - http://localhost:7545, Chain ID - 1337, Currency symbol - ETH)
 
 
 ## Usage
